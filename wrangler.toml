@@ -1,0 +1,6 @@
+name = "erics-worker"
+type = "javascript"
+account_id = "d16134d7467bc20e5eb1e6369cf5f13c"
+workers_dev = true
+route = ""
+zone_id = ""
