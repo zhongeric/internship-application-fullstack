@@ -34,7 +34,7 @@ async function handleRequest(request) {
     });
   }
   if(cookies["prev"]){
-    url = cookies["prev"]
+    var url = cookies["prev"]
   }
   else {
     var url = await getUrls();
