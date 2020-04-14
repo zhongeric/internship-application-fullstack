@@ -25,8 +25,16 @@ async function getResp(url) {
  * @param {Request} request
  */
 async function handleRequest(request) {
-  if(request.headers.get("cookie")){
-    url = request.headers.get("cookie").split("=")[1];
+  // let cookies = request.headers.get("Cookie") || ""
+  cookies = {}
+  if(request.headers.get("Cookie")){
+    request.headers.get("Cookie").split(';').forEach(function(el) {
+      let [n,v] = el.split('=');
+      cookies[n.trim()] = v
+    });
+  }
+  if(cookies["prev"]){
+    url = cookies["prev"]
   }
   else {
     var url = await getUrls();
